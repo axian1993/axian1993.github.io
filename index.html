@@ -92,7 +92,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Axian&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://axianblog.com/index.html">
 <meta property="og:site_name" content="Axian&#39;s Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Axian&#39;s Blog">
@@ -123,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://axianblog.com/"/>
 
 
 
@@ -236,7 +236,154 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/15/hiho-1135/">
+    <link itemprop="mainEntityOfPage" href="http://axianblog.com/2017/05/16/排列组合的c-实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Axian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Axian's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/16/排列组合的c-实现/" itemprop="url">排列组合的c++实现</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-16T14:01:47+08:00">
+                2017-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>写这篇博客的原因是在刷题的时候遇到了组合问题，以前用python的itertools模块就能够轻松实现排列、组合等功能，而想用c++实现类似的功能就需要自己动手。</p>
+<p>本文归纳了排列组合的以下四种常见情况，并给出了相应的算法思路：</p>
+<ol>
+<li>所有元素的全排列</li>
+<li>所有元素的全组合</li>
+<li>求n个元素中选取m个元素的排列</li>
+<li>求n个元素中选取m个元素的组合</li>
+</ol>
+<h1 id="所有元素的全排列"><a href="#所有元素的全排列" class="headerlink" title="所有元素的全排列"></a>所有元素的全排列</h1><p>对于给定的两个元素<code>ab</code>的全排列是<code>ab</code>和<code>ba</code>。<br>全排列问题可以用递归和非递归的两种方法解决。</p>
+<h2 id="递归方法"><a href="#递归方法" class="headerlink" title="递归方法"></a>递归方法</h2><p>网上有种说法是<strong>全排列就是从第一个数字起每个数分别与它后面的数字交换</strong>，我认为这样的表达不能够直观地说明为什么这样做的结果就是全排列。</p>
+<p>我们从前向后考虑排列的构成，给定n个元素，排列的第一个位置共有n个可能的取值。对于第一个位置的每一种可能的取值，都可以构造剩余n-1个元素的全排列串联在第一个元素后形成(n-1)!个排列。那么n个元素的全排列就是n种取值下排列的总和即n!个排列。那么问题可以看成是在第一个位置取不同值时求剩余(n-1)个元素的全排列。很显然，全排列问题可以被看作是一个递归问题。</p>
+<p>假设给定的元素存放在一个数组中，排列是从前向后构造的。为了让每个位置取尽所有可能的值，只需要让其与其后的每个位置交换元素即可，这就是为什么说<strong>全排列就是从第一个数字起每个数分别与它后面的数字交换</strong>的原因，下面给出了代码实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;algorithm&gt;</div><div class="line"></div><div class="line">using namespace std;</div><div class="line"></div><div class="line">void helper(char* str, int start, int length)&#123;</div><div class="line">  if (start == length - 1)</div><div class="line">    cout &lt;&lt; str &lt;&lt; endl;</div><div class="line">  else</div><div class="line">    for (int i = start; i &lt; length;i++)&#123;</div><div class="line">      swap(str[start],str[i]);</div><div class="line">      helper(str, start+1, length);</div><div class="line">      swap(str[i], str[start]);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void Permutation(char* str)&#123;</div><div class="line">  int length = strlen(str);</div><div class="line">  if (length == 0)</div><div class="line">    return;</div><div class="line">  helper(str, 0, length);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()&#123;</div><div class="line">  char a[] = &quot;abc&quot;;</div><div class="line">  Permutation(a);</div><div class="line">  return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="非递归方法"><a href="#非递归方法" class="headerlink" title="非递归方法"></a>非递归方法</h2><h1 id="所有元素全组合"><a href="#所有元素全组合" class="headerlink" title="所有元素全组合"></a>所有元素全组合</h1><h1 id="求n个元素中选取m个元素的组合"><a href="#求n个元素中选取m个元素的组合" class="headerlink" title="求n个元素中选取m个元素的组合"></a>求n个元素中选取m个元素的组合</h1><p>从3个元素<code>abc</code>中选两个元素的组合是<code>ab</code>,<code>ac</code>,<code>bc</code>。</p>
+<h1 id="求n个元素中选取m个元素的排列"><a href="#求n个元素中选取m个元素的排列" class="headerlink" title="求n个元素中选取m个元素的排列"></a>求n个元素中选取m个元素的排列</h1>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://axianblog.com/2017/05/15/hiho-1135/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Axian">
@@ -372,7 +519,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/13/hihoCoder-1121/">
+    <link itemprop="mainEntityOfPage" href="http://axianblog.com/2017/05/13/hihoCoder-1121/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Axian">
@@ -507,7 +654,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/10/hihoCoder-1120/">
+    <link itemprop="mainEntityOfPage" href="http://axianblog.com/2017/05/10/hihoCoder-1120/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Axian">
@@ -645,7 +792,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/09/开篇/">
+    <link itemprop="mainEntityOfPage" href="http://axianblog.com/2017/05/09/开篇/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Axian">
@@ -823,7 +970,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -834,7 +981,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

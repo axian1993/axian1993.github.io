@@ -236,6 +236,144 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://axianblog.com/2017/05/19/hiho-1137/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Axian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Axian's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/19/hiho-1137/" itemprop="url">hiho 1137</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-19T20:27:59+08:00">
+                2017-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hihoCoder/" itemprop="url" rel="index">
+                    <span itemprop="name">hihoCoder</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://hihocoder.com/problemset/problem/1137" target="_blank" rel="external">题目链接</a></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>这道题可以用动规来解决，对于男性和女性分别构建dp矩阵，dp[i][j]代表选择i个人，工资为j时的最大价值。用位存储被选中的人，标记100个人需要用2个long long的数值，分别标记前后50个人。</p>
+<p>对于得到的两个dp矩阵，找出所有dpm[x][]和dpf[y][]匹配中，能力最大，工资最少，字典序最小的组合。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;string&gt;</div><div class="line">#include &lt;cstdio&gt;</div><div class="line">#include &lt;cstdlib&gt;</div><div class="line">#include &lt;cstring&gt;</div><div class="line">#include &lt;vector&gt;</div><div class="line">#include &lt;set&gt;</div><div class="line">#include &lt;map&gt;</div><div class="line">#include &lt;deque&gt;</div><div class="line">#include &lt;stack&gt;</div><div class="line">#include &lt;queue&gt;</div><div class="line">#include &lt;algorithm&gt;</div><div class="line"></div><div class="line">const int maxn = 100;</div><div class="line"></div><div class="line">using namespace std;</div><div class="line"></div><div class="line">int dpm[105][1005], dpf[105][1005];</div><div class="line">unsigned long long idm[105][1005][2], idf[105][1005][2];</div><div class="line">int n, x, y, b;</div><div class="line"></div><div class="line">int main()&#123;</div><div class="line">  // freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);</div><div class="line">  cin &gt;&gt; n &gt;&gt; x &gt;&gt; y &gt;&gt; b;</div><div class="line">  memset(dpm, -1, sizeof(dpm));</div><div class="line">  memset(dpf, -1, sizeof(dpf));</div><div class="line">  memset(idm, 0, sizeof(idm));</div><div class="line">  memset(idf, 0, sizeof(idf));</div><div class="line">  dpm[0][0] = 0;</div><div class="line">  dpf[0][0] = 0;</div><div class="line">  int sum = 0, numm = 0, numf = 0;</div><div class="line">  char g;</div><div class="line">  int a, s;</div><div class="line">  for(int k =1; k&lt;=n;k++)</div><div class="line">  &#123;</div><div class="line">    cin &gt;&gt; g &gt;&gt; a &gt;&gt; s;</div><div class="line">    sum += s;</div><div class="line">    sum = min(sum, b);</div><div class="line">    if (g == &apos;M&apos;)&#123;</div><div class="line">      numm ++;</div><div class="line">      numm = min(numm, x);</div><div class="line">      for (int i = numm; i&gt;0; i--)&#123;</div><div class="line">        for (int j = sum; j &gt;= s; j--)&#123;</div><div class="line">          if (dpm[i-1][j-s] &lt; 0) continue;</div><div class="line">          if (dpm[i-1][j-s] + a &gt; dpm[i][j])&#123;</div><div class="line">            dpm[i][j] = dpm[i-1][j-s] + a;</div><div class="line">            idm[i][j][0] = idm[i-1][j-s][0];</div><div class="line">            idm[i][j][1] = idm[i-1][j-s][1];</div><div class="line">            if (k-1&lt;50) idm[i][j][0] |= 1ll &lt;&lt; (50 - k);</div><div class="line">            else idm[i][j][1] |= 1ll &lt;&lt; (100 - k);</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    else&#123;</div><div class="line">      numf ++;</div><div class="line">      numf = min(numf, y);</div><div class="line">      for (int i = numf; i&gt;0; i--)&#123;</div><div class="line">        for (int j = sum; j &gt;= s; j--)&#123;</div><div class="line">          if (dpf[i-1][j-s] &lt; 0) continue;</div><div class="line">          if (dpf[i-1][j-s] + a &gt; dpf[i][j])&#123;</div><div class="line">            dpf[i][j] = dpf[i-1][j-s] + a;</div><div class="line">            idf[i][j][0] = idf[i-1][j-s][0];</div><div class="line">            idf[i][j][1] = idf[i-1][j-s][1];</div><div class="line">            if (k-1&lt;50) idf[i][j][0] |= 1ll &lt;&lt; (50 - k);</div><div class="line">            else idf[i][j][1] |= 1ll &lt;&lt; (100 - k);</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  int resa = -1, ress = 0;</div><div class="line">  unsigned long long idx[2];</div><div class="line">  for (int i = 0; i &lt;=b; i++)&#123;</div><div class="line">    if (dpm[x][i] == -1)  continue;</div><div class="line">    for (int j = 0; j &lt;= b - i; j++)&#123;</div><div class="line">      if (dpf[y][j] == -1) continue;</div><div class="line">      if (dpm[x][i] + dpf[y][j] &gt; resa)&#123;</div><div class="line">        resa = dpm[x][i] + dpf[y][j];</div><div class="line">        ress = i + j;</div><div class="line">        idx[0] = idm[x][i][0] | idf[y][j][0];</div><div class="line">        idx[1] = idm[x][i][1] | idf[y][j][1];</div><div class="line">      &#125;</div><div class="line">      else if(dpm[x][i] + dpf[y][j] == resa &amp;&amp; ress &gt; i + j)&#123;</div><div class="line">        ress = i + j;</div><div class="line">        idx[0] = idm[x][i][0] | idf[y][j][0];</div><div class="line">        idx[1] = idm[x][i][1] | idf[y][j][1];</div><div class="line">      &#125;</div><div class="line">      else if (dpm[x][i] + dpf[y][j] == resa &amp;&amp; ress == i + j)&#123;</div><div class="line">        unsigned long long idx0 = idm[x][i][0] | idf[y][j][0];</div><div class="line">        unsigned long long idx1 = idm[x][i][1] | idf[y][j][1];</div><div class="line">        if (idx[0] &lt; idx0)&#123;</div><div class="line">          idx[0] = idx0;</div><div class="line">          idx[1] = idx1;</div><div class="line">        &#125;</div><div class="line">        else if (idx[0] == idx0 &amp;&amp; idx[1] &lt; idx1)&#123;</div><div class="line">          idx[1] = idx1;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  cout &lt;&lt; resa &lt;&lt; &quot; &quot; &lt;&lt; ress &lt;&lt; endl;</div><div class="line">  bool flag = false;</div><div class="line">  for (int i = 49; i &gt;= 0; i--)&#123;</div><div class="line">    if (1 &amp; (idx[0] &gt;&gt; i))&#123;</div><div class="line">      if (flag)&#123;</div><div class="line">        cout &lt;&lt; &quot; &quot;;</div><div class="line">      &#125;</div><div class="line">      cout &lt;&lt; (50 - i);</div><div class="line">      flag = true;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  for (int i = 49; i &gt;= 0; i--)&#123;</div><div class="line">    if (1 &amp; (idx[1] &gt;&gt; i))&#123;</div><div class="line">      if (flag)&#123;</div><div class="line">        cout &lt;&lt; &quot; &quot;;</div><div class="line">      &#125;</div><div class="line">      cout &lt;&lt; (100 - i);</div><div class="line">      flag = true;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  cout &lt;&lt; endl;</div><div class="line">  return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://www.voidcn.com/blog/u013250442/article/p-2737565.html" target="_blank" rel="external">微软2016校园招聘笔试（第一场） Professor Q’s Software &amp; Recruitment</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://axianblog.com/2017/05/16/排列组合的c-实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -981,7 +1119,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

@@ -236,6 +236,144 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://axianblog.com/2017/06/02/梯度下降法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Axian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Axian's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/02/梯度下降法/" itemprop="url">梯度下降法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-02T15:50:10+08:00">
+                2017-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h1><p><strong>梯度下降法 （Gradient Descent)</strong> 是一种常见的优化算法，用以求解函数的最大值或最小值。</p>
+<h2 id="梯度的概念"><a href="#梯度的概念" class="headerlink" title="梯度的概念"></a>梯度的概念</h2><p>梯度的计算方式如下：<br>$$grad~f(x_0,x_1,…,x_n)=\bigg(\frac{\partial{f}}{\partial x_0},\frac{\partial{f}}{\partial x_1},…,\frac{\partial{f}}{\partial x_n}\bigg)$$</p>
+<p>函数在某一点的梯度是这样一个向量，它的方向与取得最大方向导数的方向一致，而它的模为方向导数的最大值。<strong>函数沿梯度方向函数有最大的变化率。</strong>  </p>
+<h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2><p>在高数中，我们求解一个函数的最小值时，最常用的方法就是求出它的导数为0的那个点，进而判断这个点是否能够取最小值。但是，在实际很多情况，我们很难求解出使函数的导数为0的方程，这个时候就可以使用梯度下降。我们知道对于一个函数沿着梯度的反方向是下降是最快的。例如为了选取一个 $\theta$ 使 $J(\theta)$ 最小，我们可以先随机选择 $\theta$ 一个初始值，然后不断的修改 $\theta$ 以减小 $J(\theta)$，直到 $\theta$ 的值不再改变。为了更清楚，给出下面的图：<br><img src="graph/gradient_01.png" alt=""></p>
+<p>对于梯度下降法，可以表示为：<br>$$\theta_{t+1}=\theta_t-\alpha~\frac{\partial J(\theta)}{\partial\theta}$$<br>即不断地向梯度的那个方向（减小最快的方向）更新 $\theta$ ，最终使得 $J(\theta)$ 最小。其中 $\alpha$ 称为学习速率（learning rate），取值太小会导致迭代过慢，取值太大可能错过最值点。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://axianblog.com/2017/05/19/hiho-1137/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1119,7 +1257,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1130,7 +1268,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

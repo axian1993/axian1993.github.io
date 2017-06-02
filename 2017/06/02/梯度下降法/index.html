@@ -96,12 +96,13 @@
 <meta property="og:url" content="http://axianblog.com/2017/06/02/梯度下降法/index.html">
 <meta property="og:site_name" content="Axian&#39;s Blog">
 <meta property="og:description" content="梯度下降法梯度下降法 （Gradient Descent) 是一种常见的优化算法，用以求解函数的最大值或最小值。 梯度的概念梯度的计算方式如下：$$grad~f(x_0,x_1,…,x_n)=\bigg(\frac{\partial{f}}{\partial x_0},\frac{\partial{f}}{\partial x_1},…,\frac{\partial{f}}{\partial x_">
-<meta property="og:image" content="http://axianblog.com/2017/06/02/梯度下降法/graph/gradient_01.png">
-<meta property="og:updated_time" content="2017-06-02T08:39:01.000Z">
+<meta property="og:image" content="http://oqwwyfglh.bkt.clouddn.com/gradient_01.png">
+<meta property="og:image" content="http://oqwwyfglh.bkt.clouddn.com/gradient_02.png">
+<meta property="og:updated_time" content="2017-06-02T09:05:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="梯度下降法">
 <meta name="twitter:description" content="梯度下降法梯度下降法 （Gradient Descent) 是一种常见的优化算法，用以求解函数的最大值或最小值。 梯度的概念梯度的计算方式如下：$$grad~f(x_0,x_1,…,x_n)=\bigg(\frac{\partial{f}}{\partial x_0},\frac{\partial{f}}{\partial x_1},…,\frac{\partial{f}}{\partial x_">
-<meta name="twitter:image" content="http://axianblog.com/2017/06/02/梯度下降法/graph/gradient_01.png">
+<meta name="twitter:image" content="http://oqwwyfglh.bkt.clouddn.com/gradient_01.png">
 
 
 
@@ -329,8 +330,13 @@
         <h1 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h1><p><strong>梯度下降法 （Gradient Descent)</strong> 是一种常见的优化算法，用以求解函数的最大值或最小值。</p>
 <h2 id="梯度的概念"><a href="#梯度的概念" class="headerlink" title="梯度的概念"></a>梯度的概念</h2><p>梯度的计算方式如下：<br>$$grad~f(x_0,x_1,…,x_n)=\bigg(\frac{\partial{f}}{\partial x_0},\frac{\partial{f}}{\partial x_1},…,\frac{\partial{f}}{\partial x_n}\bigg)$$</p>
 <p>函数在某一点的梯度是这样一个向量，它的方向与取得最大方向导数的方向一致，而它的模为方向导数的最大值。<strong>函数沿梯度方向函数有最大的变化率。</strong>  </p>
-<h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2><p>在高数中，我们求解一个函数的最小值时，最常用的方法就是求出它的导数为0的那个点，进而判断这个点是否能够取最小值。但是，在实际很多情况，我们很难求解出使函数的导数为0的方程，这个时候就可以使用梯度下降。我们知道对于一个函数沿着梯度的反方向是下降是最快的。例如为了选取一个 $\theta$ 使 $J(\theta)$ 最小，我们可以先随机选择 $\theta$ 一个初始值，然后不断的修改 $\theta$ 以减小 $J(\theta)$，直到 $\theta$ 的值不再改变。为了更清楚，给出下面的图：<br><img src="graph/gradient_01.png" alt=""></p>
-<p>对于梯度下降法，可以表示为：<br>$$\theta_{t+1}=\theta_t-\alpha~\frac{\partial J(\theta)}{\partial\theta}$$<br>即不断地向梯度的那个方向（减小最快的方向）更新 $\theta$ ，最终使得 $J(\theta)$ 最小。其中 $\alpha$ 称为学习速率（learning rate），取值太小会导致迭代过慢，取值太大可能错过最值点。</p>
+<h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2><p>在高数中，我们求解一个函数的最小值时，最常用的方法就是求出它的导数为0的那个点，进而判断这个点是否能够取最小值。但是，在实际很多情况，我们很难求解出使函数的导数为0的方程，这个时候就可以使用梯度下降。我们知道对于一个函数沿着梯度的反方向是下降是最快的。例如为了选取一个 $\theta$ 使 $J(\theta)$ 最小，我们可以先随机选择 $\theta$ 一个初始值，然后不断的修改 $\theta$ 以减小 $J(\theta)$，直到 $\theta$ 的值不再改变。为了更清楚，给出下面的图：</p>
+<p><img src="http://oqwwyfglh.bkt.clouddn.com/gradient_01.png" alt=""></p>
+<p>这是一个表示参数 $\theta$ 与目标函数 $J(\theta)$ 的关系图，红色的部分是表示 $J(\theta)$ 有着比较高的取值，我们需要的是，能够让 $J(\theta)$ 的值尽量的低。也就是深蓝色的部分。 $\theta_0$ ， $\theta_1$ 表示 $\theta$ 向量的两个维度。</p>
+<p>在上面提到梯度下降法的第一步是给θ给一个初值，假设随机给的初值是在图上的十字点。</p>
+<p>然后我们将θ按照梯度下降的方向进行调整，就会使得J(θ)往更低的方向进行变化，如图所示，算法的结束将是在θ下降到无法继续下降为止。</p>
+<p><img src="http://oqwwyfglh.bkt.clouddn.com/gradient_02.png" alt=""></p>
+<p>对于梯度下降法，可以公式化地表示为：<br>$$\theta_{t+1}=\theta_t-\alpha~\frac{\partial J(\theta)}{\partial\theta}$$<br>即不断地向梯度的那个方向（减小最快的方向）更新 $\theta$ ，最终使得 $J(\theta)$ 最小。其中 $\alpha$ 称为学习速率（learning rate），取值太小会导致迭代过慢，取值太大可能错过最值点。</p>
 
       
     </div>

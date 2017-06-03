@@ -236,6 +236,146 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://axianblog.com/2017/06/03/感知机/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Axian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Axian's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/03/感知机/" itemprop="url">感知机</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T10:19:53+08:00">
+                2017-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h1><h2 id="口袋算法"><a href="#口袋算法" class="headerlink" title="口袋算法"></a>口袋算法</h2><p>当数据线性不可分时（存在噪音），简单的 PLA 算法显然无法收敛。我们要讨论的是如何得到近似的结果，我们希望尽可能将所有结果做对，即：<br>$$\mathbf{w}^*=\arg\min<em>\mathbf{w}\sum^N</em>{n=1}「y_n\neq \mathbf{w}^\top \mathbf{x}_n」,~~~~「x」=\begin{cases}1~,&amp;x=\text{True}\0~,&amp;x=\text{False}\end{cases}$$<br>算法策略：</p>
+<ol>
+<li>提前设定迭代次数</li>
+<li>每次迭代得到的 $\mathbf{w}$ 只有比前一次好（即误分样本更少）的时候才更新</li>
+</ol>
+<h2 id="表决感知机"><a href="#表决感知机" class="headerlink" title="表决感知机"></a>表决感知机</h2><p><img src="http://oqwwyfglh.bkt.clouddn.com/vote_perceptron.png" alt=""></p>
+<h2 id="带边缘的感知机"><a href="#带边缘的感知机" class="headerlink" title="带边缘的感知机"></a>带边缘的感知机</h2><p><img src="http://oqwwyfglh.bkt.clouddn.com/perceptron_with_margin.png" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://axianblog.com/2017/06/02/梯度下降法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1262,7 +1402,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

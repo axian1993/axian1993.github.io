@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="感知机口袋算法当数据线性不可分时（存在噪音），简单的 PLA 算法显然无法收敛。我们要讨论的是如何得到近似的结果，我们希望尽可能将所有结果做对，即：$$\mathbf{w}^*=\arg\min\mathbf{w}\sum^N{n=1}「y_n\neq \mathbf{w}^\top \mathbf{x}_n」$$算法策略：  提前设定迭代次数 每次迭代得到的 $\mathbf{w}$ 只有比前一">
+<meta name="description" content="感知机口袋算法当数据线性不可分时（存在噪音），简单的 PLA 算法显然无法收敛。我们要讨论的是如何得到近似的结果，我们希望尽可能将所有结果做对，即：$$\mathbf{w}^*=\arg\min_\mathbf{w} \sum _{n=1}^{N}「y_n\neq \mathbf{w}^\top \mathbf{x}_n」,~~~~「x」=\begin{cases}1&amp;amp;x=\text{tr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="感知机">
 <meta property="og:url" content="http://axianblog.com/2017/06/03/感知机/index.html">
 <meta property="og:site_name" content="Axian&#39;s Blog">
-<meta property="og:description" content="感知机口袋算法当数据线性不可分时（存在噪音），简单的 PLA 算法显然无法收敛。我们要讨论的是如何得到近似的结果，我们希望尽可能将所有结果做对，即：$$\mathbf{w}^*=\arg\min\mathbf{w}\sum^N{n=1}「y_n\neq \mathbf{w}^\top \mathbf{x}_n」$$算法策略：  提前设定迭代次数 每次迭代得到的 $\mathbf{w}$ 只有比前一">
+<meta property="og:description" content="感知机口袋算法当数据线性不可分时（存在噪音），简单的 PLA 算法显然无法收敛。我们要讨论的是如何得到近似的结果，我们希望尽可能将所有结果做对，即：$$\mathbf{w}^*=\arg\min_\mathbf{w} \sum _{n=1}^{N}「y_n\neq \mathbf{w}^\top \mathbf{x}_n」,~~~~「x」=\begin{cases}1&amp;amp;x=\text{tr">
 <meta property="og:image" content="http://oqwwyfglh.bkt.clouddn.com/vote_perceptron.png">
 <meta property="og:image" content="http://oqwwyfglh.bkt.clouddn.com/perceptron_with_margin.png">
-<meta property="og:updated_time" content="2017-06-03T04:14:45.000Z">
+<meta property="og:updated_time" content="2017-06-03T04:44:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="感知机">
-<meta name="twitter:description" content="感知机口袋算法当数据线性不可分时（存在噪音），简单的 PLA 算法显然无法收敛。我们要讨论的是如何得到近似的结果，我们希望尽可能将所有结果做对，即：$$\mathbf{w}^*=\arg\min\mathbf{w}\sum^N{n=1}「y_n\neq \mathbf{w}^\top \mathbf{x}_n」$$算法策略：  提前设定迭代次数 每次迭代得到的 $\mathbf{w}$ 只有比前一">
+<meta name="twitter:description" content="感知机口袋算法当数据线性不可分时（存在噪音），简单的 PLA 算法显然无法收敛。我们要讨论的是如何得到近似的结果，我们希望尽可能将所有结果做对，即：$$\mathbf{w}^*=\arg\min_\mathbf{w} \sum _{n=1}^{N}「y_n\neq \mathbf{w}^\top \mathbf{x}_n」,~~~~「x」=\begin{cases}1&amp;amp;x=\text{tr">
 <meta name="twitter:image" content="http://oqwwyfglh.bkt.clouddn.com/vote_perceptron.png">
 
 
@@ -327,7 +327,7 @@
       
 
       
-        <h1 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h1><h2 id="口袋算法"><a href="#口袋算法" class="headerlink" title="口袋算法"></a>口袋算法</h2><p>当数据线性不可分时（存在噪音），简单的 PLA 算法显然无法收敛。我们要讨论的是如何得到近似的结果，我们希望尽可能将所有结果做对，即：<br>$$\mathbf{w}^*=\arg\min<em>\mathbf{w}\sum^N</em>{n=1}「y_n\neq \mathbf{w}^\top \mathbf{x}_n」$$<br>算法策略：</p>
+        <h1 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h1><h2 id="口袋算法"><a href="#口袋算法" class="headerlink" title="口袋算法"></a>口袋算法</h2><p>当数据线性不可分时（存在噪音），简单的 PLA 算法显然无法收敛。我们要讨论的是如何得到近似的结果，我们希望尽可能将所有结果做对，即：<br>$$\mathbf{w}^*=\arg\min_\mathbf{w} \sum _{n=1}^{N}「y_n\neq \mathbf{w}^\top \mathbf{x}_n」,~~~~「x」=\begin{cases}1&amp;x=\text{true} \\ 0&amp;x=\text{false}\end{cases}$$<br>算法策略：</p>
 <ol>
 <li>提前设定迭代次数</li>
 <li>每次迭代得到的 $\mathbf{w}$ 只有比前一次好（即误分样本更少）的时候才更新</li>
